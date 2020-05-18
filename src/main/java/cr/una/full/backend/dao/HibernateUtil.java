@@ -32,7 +32,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.Properties;
 
 /**
- * Class utils for connetion to the database using Hibernate
+ * Class utils for connection to the database using Hibernate
  */
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
