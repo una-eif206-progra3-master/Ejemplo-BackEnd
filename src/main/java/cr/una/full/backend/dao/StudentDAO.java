@@ -33,7 +33,7 @@ public interface StudentDAO {
      * Find the student that match with the id
      * @param id the identify of the student
      * @return the Student entity
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public Student findById (int id) throws DAOException;
 
@@ -41,7 +41,7 @@ public interface StudentDAO {
      * Save a new student in the database
      * @param student is the entity of Student
      * @return the updated student entity with the corresponding id
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public Student save(Student student) throws DAOException;
 
@@ -49,14 +49,14 @@ public interface StudentDAO {
      * Update a stutent in the database
      * @param student is the entity of Student
      * @return the udpated student entity
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public Student update(Student student) throws DAOException;
 
     /**
      * Fina all the sutudent in the database
      * @return a list of students
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public List<Student> findAll() throws DAOException;
 
@@ -64,7 +64,7 @@ public interface StudentDAO {
      * Delete a student in the database
      * @param id the identify of the student
      * @return true if a success delete
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public boolean delete(int id) throws DAOException;
 }

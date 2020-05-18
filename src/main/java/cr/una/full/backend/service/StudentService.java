@@ -34,8 +34,8 @@ public interface StudentService {
     /**
      * Find All student
      * @return a list of students
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     public List<Student> findAll() throws DAOException, ServiceException;
 
@@ -43,8 +43,8 @@ public interface StudentService {
      * Find students by id
      * @param id the identify of the student
      * @return the student found
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     public Student findById(int id) throws DAOException, ServiceException;
 
@@ -52,8 +52,8 @@ public interface StudentService {
      * Save student in the databse
      * @param student the student entity with the information to save
      * @return the saved student entity
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     public Student save(Student student) throws DAOException, ServiceException;
 }

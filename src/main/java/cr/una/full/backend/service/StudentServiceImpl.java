@@ -39,8 +39,8 @@ public class StudentServiceImpl implements StudentService {
      * Find All student
      *
      * @return a list of students
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     @Override
     public List<Student> findAll() throws DAOException, ServiceException {
@@ -55,8 +55,8 @@ public class StudentServiceImpl implements StudentService {
      *
      * @param id the identify of the student
      * @return the student found
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     @Override
     public Student findById(int id) throws DAOException, ServiceException {
@@ -72,8 +72,8 @@ public class StudentServiceImpl implements StudentService {
      *
      * @param student the student entity with the information to save
      * @return the saved student entity
-     * @throws DAOException
-     * @throws ServiceException
+     * @throws DAOException DAO Exception
+     * @throws ServiceException Service Exception
      */
     @Override
     public Student save(Student student) throws DAOException, ServiceException {

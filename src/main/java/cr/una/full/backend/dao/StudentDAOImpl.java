@@ -85,7 +85,7 @@ public class StudentDAOImpl implements StudentDAO {
      *
      * @param student is the entity of Student
      * @return the udpated student entity
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     @Override
     public Student update(Student student) throws DAOException {
@@ -100,7 +100,7 @@ public class StudentDAOImpl implements StudentDAO {
      * Fina all the sutudent in the database
      *
      * @return a list of students
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     @Override
     public List<Student> findAll() throws DAOException {
@@ -116,7 +116,7 @@ public class StudentDAOImpl implements StudentDAO {
      *
      * @param id the identify of the student
      * @return true if a success delete
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     @Override
     public boolean delete(int id) throws DAOException {
