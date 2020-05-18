@@ -26,8 +26,34 @@ import cr.una.full.backend.model.Student;
 
 import java.util.List;
 
+/**
+ * Student Service
+ * Manage the services for Student
+ */
 public interface StudentService {
+    /**
+     * Find All student
+     * @return a list of students
+     * @throws DAOException
+     * @throws ServiceException
+     */
     public List<Student> findAll() throws DAOException, ServiceException;
+
+    /**
+     * Find students by id
+     * @param id the identify of the student
+     * @return the student found
+     * @throws DAOException
+     * @throws ServiceException
+     */
     public Student findById(int id) throws DAOException, ServiceException;
+
+    /**
+     * Save student in the databse
+     * @param student the student entity with the information to save
+     * @return the saved student entity
+     * @throws DAOException
+     * @throws ServiceException
+     */
     public Student save(Student student) throws DAOException, ServiceException;
 }

@@ -24,6 +24,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
+/**
+ * Entity Student
+ */
 public class Student {
 
     @Id

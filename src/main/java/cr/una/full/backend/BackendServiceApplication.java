@@ -28,6 +28,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Collections;
 
+/**
+ * The main class for Spring boot to run
+ */
 @SpringBootApplication
 public class BackendServiceApplication {
 

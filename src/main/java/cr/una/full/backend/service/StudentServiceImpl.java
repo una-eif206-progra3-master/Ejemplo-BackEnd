@@ -28,10 +28,20 @@ import cr.una.full.backend.model.Student;
 
 import java.util.List;
 
+/**
+ * The Student service implementation
+ */
 public class StudentServiceImpl implements StudentService {
     private StudentDAO studentDAO;
     List<Student> listStudents = null;
 
+    /**
+     * Find All student
+     *
+     * @return a list of students
+     * @throws DAOException
+     * @throws ServiceException
+     */
     @Override
     public List<Student> findAll() throws DAOException, ServiceException {
         List<Student> listStudents = null;
@@ -40,6 +50,14 @@ public class StudentServiceImpl implements StudentService {
         return listStudents;
     }
 
+    /**
+     * Find students by id
+     *
+     * @param id the identify of the student
+     * @return the student found
+     * @throws DAOException
+     * @throws ServiceException
+     */
     @Override
     public Student findById(int id) throws DAOException, ServiceException {
         Student student = null;
@@ -49,6 +67,14 @@ public class StudentServiceImpl implements StudentService {
         return student;
     }
 
+    /**
+     * Save student in the databse
+     *
+     * @param student the student entity with the information to save
+     * @return the saved student entity
+     * @throws DAOException
+     * @throws ServiceException
+     */
     @Override
     public Student save(Student student) throws DAOException, ServiceException {
         Student studentSaved;
@@ -56,5 +82,4 @@ public class StudentServiceImpl implements StudentService {
         studentSaved = studentDAO.save(student);
         return studentSaved;
     }
-
 }

@@ -25,10 +25,46 @@ import cr.una.full.backend.model.Student;
 
 import java.util.List;
 
+/**
+ * Student DAO
+ */
 public interface StudentDAO {
+    /**
+     * Find the student that match with the id
+     * @param id the identify of the student
+     * @return the Student entity
+     * @throws DAOException
+     */
     public Student findById (int id) throws DAOException;
+
+    /**
+     * Save a new student in the database
+     * @param student is the entity of Student
+     * @return the updated student entity with the corresponding id
+     * @throws DAOException
+     */
     public Student save(Student student) throws DAOException;
+
+    /**
+     * Update a stutent in the database
+     * @param student is the entity of Student
+     * @return the udpated student entity
+     * @throws DAOException
+     */
     public Student update(Student student) throws DAOException;
+
+    /**
+     * Fina all the sutudent in the database
+     * @return a list of students
+     * @throws DAOException
+     */
     public List<Student> findAll() throws DAOException;
+
+    /**
+     * Delete a student in the database
+     * @param id the identify of the student
+     * @return true if a success delete
+     * @throws DAOException
+     */
     public boolean delete(int id) throws DAOException;
 }

@@ -24,7 +24,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Manage the general exceptions of the backend
+ * Manage the exceptions of the backend for DAO
  */
 public class DAOException extends Exception {
 

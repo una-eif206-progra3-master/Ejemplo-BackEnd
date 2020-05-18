@@ -30,14 +30,29 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+/**
+ * The DAO implementation of Student
+ */
 public class StudentDAOImpl implements StudentDAO {
     private final Session session = HibernateUtil.getSessionFactory().openSession();
 
+    /**
+     * Default constructor
+     * @throws DAOException
+     */
     public StudentDAOImpl() throws DAOException {
     }
 
+
+    /**
+     * Find the student that match with the id
+     *
+     * @param id the identify of the student
+     * @return the Student entity
+     * @throws DAOException
+     */
     @Override
-    public Student findById(int id) throws DAOException{
+    public Student findById(int id) throws DAOException {
         Student student;
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Student> query = builder.createQuery(Student.class);
@@ -49,6 +64,13 @@ public class StudentDAOImpl implements StudentDAO {
         return student;
     }
 
+    /**
+     * Save a new student in the database
+     *
+     * @param student is the entity of Student
+     * @return the updated student entity with the corresponding id
+     * @throws DAOException
+     */
     @Override
     public Student save(Student student) throws DAOException {
         session.beginTransaction();
@@ -58,6 +80,13 @@ public class StudentDAOImpl implements StudentDAO {
         return student;
     }
 
+    /**
+     * Update a stutent in the database
+     *
+     * @param student is the entity of Student
+     * @return the udpated student entity
+     * @throws DAOException
+     */
     @Override
     public Student update(Student student) throws DAOException {
         session.beginTransaction();
@@ -67,6 +96,12 @@ public class StudentDAOImpl implements StudentDAO {
         return student;
     }
 
+    /**
+     * Fina all the sutudent in the database
+     *
+     * @return a list of students
+     * @throws DAOException
+     */
     @Override
     public List<Student> findAll() throws DAOException {
         List<Student> studentList;
@@ -76,6 +111,13 @@ public class StudentDAOImpl implements StudentDAO {
         return studentList;
     }
 
+    /**
+     * Delete a student in the database
+     *
+     * @param id the identify of the student
+     * @return true if a success delete
+     * @throws DAOException
+     */
     @Override
     public boolean delete(int id) throws DAOException {
         boolean isDeleted;

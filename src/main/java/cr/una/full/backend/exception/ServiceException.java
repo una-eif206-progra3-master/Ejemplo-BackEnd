@@ -23,6 +23,9 @@ package cr.una.full.backend.exception;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Manage the exceptions of the backend for Service
+ */
 public class ServiceException extends Exception {
     private static final Logger logger = LogManager.getLogger(ServiceException.class);
 
