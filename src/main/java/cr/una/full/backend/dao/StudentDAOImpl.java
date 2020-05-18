@@ -38,7 +38,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     /**
      * Default constructor
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     public StudentDAOImpl() throws DAOException {
     }
@@ -49,7 +49,7 @@ public class StudentDAOImpl implements StudentDAO {
      *
      * @param id the identify of the student
      * @return the Student entity
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     @Override
     public Student findById(int id) throws DAOException {
@@ -69,7 +69,7 @@ public class StudentDAOImpl implements StudentDAO {
      *
      * @param student is the entity of Student
      * @return the updated student entity with the corresponding id
-     * @throws DAOException
+     * @throws DAOException DAO Exception
      */
     @Override
     public Student save(Student student) throws DAOException {
