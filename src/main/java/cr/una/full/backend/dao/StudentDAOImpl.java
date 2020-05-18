@@ -20,6 +20,7 @@
 
 package cr.una.full.backend.dao;
 
+import cr.una.full.backend.exception.DAOException;
 import cr.una.full.backend.model.Student;
 import org.hibernate.Session;
 
@@ -32,8 +33,11 @@ import java.util.List;
 public class StudentDAOImpl implements StudentDAO {
     private final Session session = HibernateUtil.getSessionFactory().openSession();
 
+    public StudentDAOImpl() throws DAOException {
+    }
+
     @Override
-    public Student findById(int id) {
+    public Student findById(int id) throws DAOException{
         Student student;
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Student> query = builder.createQuery(Student.class);
@@ -46,7 +50,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student save(Student student) {
+    public Student save(Student student) throws DAOException {
         session.beginTransaction();
         session.save(student);
         session.getTransaction().commit();
@@ -55,7 +59,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student update(Student student) {
+    public Student update(Student student) throws DAOException {
         session.beginTransaction();
         session.update(student);
         session.getTransaction().commit();
@@ -64,7 +68,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public List<Student> findAll() {
+    public List<Student> findAll() throws DAOException {
         List<Student> studentList;
 
         studentList = session.createQuery("from Student", Student.class).list();
@@ -73,7 +77,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int id) throws DAOException {
         boolean isDeleted;
         Student student;
 

@@ -20,12 +20,14 @@
 
 package cr.una.full.backend.service;
 
+import cr.una.full.backend.exception.DAOException;
+import cr.una.full.backend.exception.ServiceException;
 import cr.una.full.backend.model.Student;
 
 import java.util.List;
 
 public interface StudentService {
-    public List<Student> findAll();
-    public Student findById(int id);
-    public Student save(Student student);
+    public List<Student> findAll() throws DAOException, ServiceException;
+    public Student findById(int id) throws DAOException, ServiceException;
+    public Student save(Student student) throws DAOException, ServiceException;
 }

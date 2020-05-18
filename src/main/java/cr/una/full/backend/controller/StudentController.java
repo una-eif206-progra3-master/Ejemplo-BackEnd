@@ -20,11 +20,15 @@
 
 package cr.una.full.backend.controller;
 
+import cr.una.full.backend.exception.DAOException;
+import cr.una.full.backend.exception.ServiceException;
 import cr.una.full.backend.model.Student;
 import cr.una.full.backend.service.StudentService;
 import cr.una.full.backend.service.StudentServiceImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -37,14 +41,32 @@ public class StudentController {
     @GetMapping()
     @ResponseBody
     public List<Student> findAll() {
-        List<Student> studentList = studentService.findAll();
+        List<Student> studentList = null;
+        try {
+            studentList = studentService.findAll();
+        } catch (DAOException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error importante - Capa DAO", ex);
+        } catch (ServiceException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error importante - Capa Service", ex);
+        }
         return studentList;
     }
 
     @GetMapping("{id}")
     @ResponseBody
     public Student findById(@PathVariable int id) {
-        Student student = studentService.findById(id);
+        Student student = null;
+        try {
+            student = studentService.findById(id);
+        } catch (DAOException bex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR,"Error importante - Capa DAO", bex);
+        } catch (ServiceException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error importante - Capa Service", ex);
+        }
 
         return student;
     }
@@ -52,10 +74,16 @@ public class StudentController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseBody
     public Student save(@RequestBody Student student) {
-        Student studentSaved = studentService.save(student);
-
+        Student studentSaved = null;
+        try {
+            studentSaved = studentService.save(student);
+        } catch (DAOException bex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error importante - Capa DAO", bex);
+        } catch (ServiceException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error importante - Capa Service", ex);
+        }
         return studentSaved;
     }
-
-
 }

@@ -20,7 +20,9 @@
 
 package cr.una.full.backend.dao;
 
+import cr.una.full.backend.exception.DAOException;
 import cr.una.full.backend.model.Student;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -32,7 +34,7 @@ import java.util.Properties;
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() throws DAOException {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
@@ -57,9 +59,10 @@ public class HibernateUtil {
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            } catch (Exception e) {
-                e.printStackTrace();
+            }catch (HibernateException hibernateEx) {
+                throw new DAOException("Error con la base de datos", hibernateEx.getCause());
             }
+
         }
         return sessionFactory;
     }

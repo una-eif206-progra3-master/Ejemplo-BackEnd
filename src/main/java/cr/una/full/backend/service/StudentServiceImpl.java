@@ -22,9 +22,10 @@ package cr.una.full.backend.service;
 
 import cr.una.full.backend.dao.StudentDAO;
 import cr.una.full.backend.dao.StudentDAOImpl;
+import cr.una.full.backend.exception.DAOException;
+import cr.una.full.backend.exception.ServiceException;
 import cr.una.full.backend.model.Student;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
@@ -32,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
     List<Student> listStudents = null;
 
     @Override
-    public List<Student> findAll() {
+    public List<Student> findAll() throws DAOException, ServiceException {
         List<Student> listStudents = null;
         studentDAO = new StudentDAOImpl();
         listStudents = studentDAO.findAll();
@@ -40,7 +41,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findById(int id) {
+    public Student findById(int id) throws DAOException, ServiceException {
         Student student = null;
         studentDAO = new StudentDAOImpl();
         student = studentDAO.findById(id);
@@ -49,7 +50,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student save(Student student) {
+    public Student save(Student student) throws DAOException, ServiceException {
         Student studentSaved;
         studentDAO = new StudentDAOImpl();
         studentSaved = studentDAO.save(student);
